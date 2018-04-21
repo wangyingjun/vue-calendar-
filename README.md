@@ -1,5 +1,6 @@
 # vue-calendar-range-mobile
 > 用于移动端的选择日期范围
+
 > vue >= 2.0
 
 ## 快速开始
@@ -14,11 +15,13 @@ import Calendar from 'vue-calendar-range-mobile'
 import 'vue-calendar-range-mobile/dist/calendar.css'
 Vue.use(Calendar)
 ```
-###或者组件中引入单个组建
+
+### 或者组件中引入单个组建
 ```javascript
 import {Calendar} from 'vue-calendar-range-mobile'
 ```
-###或者页面中引用
+
+### 或者页面中引用
 ```html
 <!-- 引入样式 -->
 <link rel="stylesheet" href="package/dist/calendar.css">
@@ -26,7 +29,7 @@ import {Calendar} from 'vue-calendar-range-mobile'
 <script src="package/dist/calendar.js"></script>
 ```
 
-###使用
+### 使用
 ```vue
 <template>
     <div class="test">
