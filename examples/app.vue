@@ -10,7 +10,6 @@
     export default {
         data(){
             return {
-                msg: 'test',
                 start: '',
                 end: '',
                 defaultValue: [Date.now(), Date.now()+86400000]

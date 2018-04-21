@@ -1,5 +1,5 @@
 {
-  "name": "vue-calendar-mobile",
+  "name": "vue-calendar-range-mobile",
   "version": "1.0.0",
   "description": "vue calendar mobile",
   "main": "dist/calendar.js",
