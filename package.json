@@ -2,10 +2,10 @@
   "name": "vue-calendar-mobile",
   "version": "1.0.0",
   "description": "vue calendar mobile",
-  "main": "index.js",
+  "main": "dist/calendar.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --hot --config build/webpack.dev.conf.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dist": "webpack --config build/webpack.dist.conf.js"
   },
   "repository": {
     "type": "git",

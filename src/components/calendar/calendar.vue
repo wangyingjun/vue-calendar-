@@ -1,7 +1,14 @@
 <template>
-    <div class="ui-model">
-        <div class="ui-calendar">
-            <div class="ui-calendar__tools"></div>
+    <div>
+        <transition name="fade">
+            <div v-if="visible" class="ui-model" @click="close"></div>
+        </transition>
+        <transition name="slide">
+        <div v-if="visible" class="ui-calendar">
+            <div class="ui-calendar__tools">
+                <a href="javascript:;" class="ui-tools__btn" @click="handleCancel">取消</a>
+                <a href="javascript:;" class="ui-tools__btn done" @click="handleDone">完成</a>
+            </div>
             <div class="ui-calendar__week-bar">
                 <ul>
                     <li class="weekend">日</li>
@@ -18,216 +25,32 @@
                     <div class="ui-month__bar">{{item.year}}年{{item.month + 1}}月</div>
                     <div class="ui-month__list">
                         <ul>
-                            <li v-for="day in item.list">
-                                <div v-if="day === 'empty'" class="inner"></div>
-                                <div v-else class="inner"><span>{{day}}</span></div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="ui-month__plane">
-                    <div class="ui-month__bar">2018年04月</div>
-                    <div class="ui-month__list">
-                        <ul>
-
-                            <li class="in-range">
-                                <div class="inner"><span>13</span></div>
-                            </li>
-                            <li class="in-range">
-                                <div class="inner"><span>14</span></div>
-                            </li>
-                            <li class="in-range">
-                                <div class="inner"><span>15</span></div>
-                            </li>
-                            <li class="in-range">
-                                <div class="inner"><span>16</span></div>
-                            </li>
-                            <li class="in-range">
-                                <div class="inner"><span>17</span></div>
-                            </li>
-                            <li class="in-range end-date">
-                                <div class="inner"><span>18</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>6</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>7</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>8</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>9</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>10</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>11</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>12</span></div>
-                            </li>
-                            <li class="in-range start-date">
-                                <div class="inner"><span>13</span></div>
-                            </li>
-                            <li class="in-range">
-                                <div class="inner"><span>14</span></div>
-                            </li>
-                            <li class="in-range">
-                                <div class="inner"><span>15</span></div>
-                            </li>
-                            <li class="in-range">
-                                <div class="inner"><span>16</span></div>
-                            </li>
-                            <li class="in-range">
-                                <div class="inner"><span>17</span></div>
-                            </li>
-                            <li class="in-range end-date">
-                                <div class="inner"><span>18</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>19</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>20</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>21</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>22</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>23</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>24</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>25</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>26</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>27</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>28</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>29</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>30</span></div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="ui-month__plane">
-                    <div class="ui-month__bar">2018年04月</div>
-                    <div class="ui-month__list">
-                        <ul>
-                            <li>
-                                <div class="inner"><span>1</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>2</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>3</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>4</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>5</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>6</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>7</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>8</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>9</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>10</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>11</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>12</span></div>
-                            </li>
-                            <li class="in-range start-date">
-                                <div class="inner"><span>13</span></div>
-                            </li>
-                            <li class="in-range">
-                                <div class="inner"><span>14</span></div>
-                            </li>
-                            <li class="in-range">
-                                <div class="inner"><span>15</span></div>
-                            </li>
-                            <li class="in-range">
-                                <div class="inner"><span>16</span></div>
-                            </li>
-                            <li class="in-range">
-                                <div class="inner"><span>17</span></div>
-                            </li>
-                            <li class="in-range end-date">
-                                <div class="inner"><span>18</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>19</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>20</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>21</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>22</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>23</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>24</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>25</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>26</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>27</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>28</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>29</span></div>
-                            </li>
-                            <li>
-                                <div class="inner"><span>30</span></div>
+                            <li v-for="cell in item.list" :class="getCellClasses(cell)"
+                                @click="handleClick(item.year, item.month, cell)">
+                                <div v-if="cell === 'empty'" class="inner"></div>
+                                <div v-else class="inner"><span>{{cell.text}}</span></div>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
+        </transition>
     </div>
 </template>
 <style lang="scss">
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
+    }
+    .slide-enter-active, .slide-leave-active {
+        transition: transform .3s;
+    }
+    .slide-enter, .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        transform: translateY(100%);
+    }
     .ui-model {
         position: absolute;
         width: 100%;
@@ -235,7 +58,7 @@
         top: 0;
         left: 0;
         background: rgba(0, 0, 0, .7);
-        z-index: 999;
+        z-index: 9;
     }
 
     .ui-calendar {
@@ -246,23 +69,36 @@
         background-color: #fff;
         width: 100%;
         height: 75%;
-        z-index: 1000;
+        z-index: 10;
         .ui-calendar__tools {
             position: absolute;
             z-index: 10;
             top: 0;
             left: 0;
-            height: 90px;
+            height: 45px;
             width: 100%;
             border-bottom: 1px solid #d9d9d9;
             background-color: #fff;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+            .ui-tools__btn{
+                font-size: 15px;
+                padding: 5px 10px;
+                color: #333;
+                &.done{
+                    color: #0BB580
+                }
+            }
         }
         .ui-calendar__week-bar {
             position: absolute;
             z-index: 10;
-            top: 90px;
+            top: 45px;
             left: 0;
-            height: 98px;
+            height: 49px;
             width: 100%;
             border-bottom: 1px solid #d9d9d9;
             background-color: #fff;
@@ -272,8 +108,8 @@
             li{
                 flex: 1 1 auto;
                 text-align: center;
-                line-height: 98px;
-                font-size: 28px;
+                line-height: 49px;
+                font-size: 14px;
                 color: #333;
                 &.weekend{
                     color: #FF811B;
@@ -282,17 +118,17 @@
         }
         .ui-calendar__wrapper{
             box-sizing: border-box;
-            padding-top: 188px;
+            padding-top: 94px;
             width: 100%;
             height: 100%;
             overflow: auto;
         }
         .ui-month__plane{
             .ui-month__bar{
-                height: 120px;
-                line-height: 120px;
+                height: 60px;
+                line-height: 60px;
                 text-align: center;
-                font-size: 28px;
+                font-size: 14px;
                 color: #333;
             }
             .ui-month__list{
@@ -304,20 +140,30 @@
                 li{
                     flex: 0 0 auto;
                     width: 14.28%;
-                    padding: 28px 0;
+                    padding: 14px 0;
                     border-bottom: 1px solid #eee;
                     text-align: center;
                     position: relative;
-                    font-size: 32px;
+                    font-size: 16px;
                     color: #333;
+                    &.weekend{
+                        color: #FF811B;
+                    }
+                    &.today{
+                        color: #0BB580;
+                        font-weight: bold;
+                    }
+                    &.disable{
+                        color: #ccc;
+                    }
                 }
                 .inner{
-                    height: 60px;
+                    height: 30px;
                     span{
                         display: block;
-                        width: 60px;
-                        height: 60px;
-                        line-height: 60px;
+                        width: 30px;
+                        height: 30px;
+                        line-height: 30px;
                         margin: 0 auto;
                     }
                 }
@@ -329,7 +175,7 @@
                         color: #0BB580;
                     }
                 }
-                .in-range.start-date{
+                .start-date{
                     .inner{
                         position: relative;
                         &::before{
@@ -350,7 +196,7 @@
                         border-radius: 50%;
                     }
                 }
-                .in-range.end-date{
+                .end-date{
                     .inner{
                         position: relative;
                         &::before{
@@ -379,16 +225,41 @@
     export default {
         data(){
             return {
+                visible: false,
                 today: new Date(),
-                months: 4,
+                currentYear: '',
+                currentMonth: '',
+                currentDay: '',
+                startDate: '',
+                endDate: '',
                 monthDayList: [31,28,31,30,31,30,31,31,30,31,30,31],
                 monthPlaneList: []
             }
         },
         props: {
-
+            done: Function,
+            months: {
+                type: Number,
+                default: 4
+            },
+            defaultValue: {
+                type: Array,
+                default(){
+                    return ['', '']
+                }
+            }
+        },
+        watch:{
+            defaultValue(newVal, oldVal){
+                this.startDate = newVal[0];
+                this.endDate = newVal[1];
+                this.doMark();
+            }
         },
         methods: {
+            getUTC(year, month, day){
+                return Date.UTC(year, month, day)
+            },
             createMonthList(){
                 let year = this.today.getFullYear(),
                     month = this.today.getMonth(),
@@ -419,7 +290,19 @@
                     list.push('empty')
                 }
                 for(let i=1; i<=monthDays; i++){
-                    list.push(i)
+                    let index  = offsetDays + i - 1,
+                        isWeekend = index % 7 === 0 || (index+1) % 7 === 0,
+                        isToday = this.currentYear === year && this.currentMonth === month && this.currentDay === i,
+                        disable = Date.UTC(year, month, i) < Date.UTC(this.currentYear, this.currentMonth, this.currentDay);
+                    list.push({
+                        text: i,
+                        isRange: false,
+                        isStart: false,
+                        isEnd: false,
+                        disable,
+                        isWeekend,
+                        isToday
+                    })
                 }
                 return {
                     year,
@@ -428,12 +311,144 @@
                 }
             },
             getCellClasses(cell){
+                let classes = [];
+                if(typeof cell === 'string') return '';
+                if(cell.isWeekend){
+                    classes.push('weekend')
+                }
+                if(cell.isToday){
+                    classes.push('today')
+                }
+                if(cell.disable){
+                    classes.push('disable')
+                }
+                if(cell.isRange){
+                    classes.push('in-range')
+                }
+                if(cell.isStart){
+                    classes.push('start-date')
+                }
+                if(cell.isEnd){
+                    classes.push('end-date')
+                }
 
+                return classes.join(' ')
+            },
+            currentDate(){
+                this.currentYear = this.today.getFullYear();
+                this.currentMonth = this.today.getMonth();
+                this.currentDay = this.today.getDate();
+            },
+            markRange(){
+                if(!this.startDate && !this.endDate){
+                    for (let i=0; i<this.months; i++){
+                        this.monthPlaneList[i].list.forEach( day => {
+                            if(typeof day === 'string') return;
+                            if(day.disable) return;
+                            day.isRange = false;
+                            day.isStart = false;
+                            day.isEnd = false;
+                        })
+                    }
+                }else if(this.startDate && this.endDate){
+                    for (let i=0; i<this.months; i++){
+                        let current = this.monthPlaneList[i],
+                            currentYear = current.year,
+                            currentMonth = current.month;
+                        current.list.forEach( day => {
+                            if(typeof day === 'string') return;
+                            if(day.disable) return;
+                            day.isRange = false;
+                            day.isStart = false;
+                            day.isEnd = false;
+                            let currentUTC = this.getUTC(currentYear, currentMonth, day.text);
+                            if(currentUTC === this.startDate){
+                                day.isStart = true;
+                            }
+                            if(currentUTC === this.endDate){
+                                day.isEnd = true;
+                            }
+                            if(currentUTC >= this.startDate && currentUTC <= this.endDate){
+                                day.isRange = true;
+                            }
+                        })
+                    }
+                }else if(this.startDate && !this.endDate){
+                    for (let i=0; i<this.months; i++){
+                        let current = this.monthPlaneList[i],
+                            currentYear = current.year,
+                            currentMonth = current.month;
+                        current.list.forEach( day => {
+                            if(typeof day === 'string') return;
+                            if(day.disable) return;
+                            day.isRange = false;
+                            day.isStart = false;
+                            day.isEnd = false;
+                            let currentUTC = this.getUTC(currentYear, currentMonth, day.text);
+                            if(currentUTC === this.startDate){
+                                day.isStart = true;
+                            }
+                        })
+                    }
+                }
+            },
+            getDates(){
+                return {
+                    startDate: this.startDate,
+                    endDate: this.endDate,
+                }
+            },
+            handleClick(year, month, cell){
+                if(typeof cell === 'string') return;
+                if(cell.disable) return;
+                let currentUTC = this.getUTC(year, month, cell.text);
+                if( (!this.startDate && !this.endDate) ||
+                    (this.startDate && this.endDate) ){
+                    this.startDate = currentUTC;
+                    this.endDate = '';
+                }else if(this.startDate){
+                    if(currentUTC < this.startDate){
+                        this.startDate = currentUTC
+                    }else if(currentUTC > this.startDate){
+                        this.endDate = currentUTC;
+                    }
+                }
+                this.markRange();
+            },
+            open(){
+                this.visible = true;
+            },
+            close(){
+                this.visible = false;
+            },
+            handleDone(){
+                if(!this.startDate || !this.endDate) return;
+                this.done && this.done(this.getDates());
+                this.close();
+            },
+            handleCancel(){
+                this.close();
+            },
+            doMark(){
+                let start = this.defaultValue[0];
+                let end = this.defaultValue[1];
+                if(start){
+                    start = new Date(start);
+                    start = this.getUTC(start.getFullYear(), start.getMonth(), start.getDate())
+                }
+                if(end){
+                    end = new Date(end);
+                    end = this.getUTC(end.getFullYear(), end.getMonth(), end.getDate())
+                }
+                this.startDate = start;
+                this.endDate = end;
+                this.markRange();
             }
         },
         mounted(){
+            this.currentDate();
             this.createMonthList();
-            console.log(this.monthPlaneList)
+            this.doMark()
         }
     }
 </script>
